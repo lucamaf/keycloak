@@ -6,6 +6,8 @@ ENV KEYCLOAK_VERSION 2.5.1.Final
 ENV LAUNCH_JBOSS_IN_BACKGROUND 1
 
 USER root
+RUN chgrp -R 0 $JBOSS_HOME &&\
+chmod -R g+rw $JBOSS_HOME
 
 RUN yum install -y epel-release && yum install -y jq && yum clean all
 
